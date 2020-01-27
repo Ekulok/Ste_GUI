@@ -1,2 +1,2 @@
-# Ste_GUI
+# SteganographyFYP
 FYP interim

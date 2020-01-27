@@ -5,6 +5,8 @@ from stegan import stegan
 from proj_py.change_filetype import *
 from proj_py.eng_watermark import *
 
+import cv2
+
 import os
 
 s = stegan()
@@ -247,7 +249,7 @@ class digitalwatermark:
                 self.img = ImageTk.PhotoImage(self.original)
                 self.XY.create_image(0, 0, image=self.img, anchor="nw")  # add係左上
             except:
-                print("Please select an image")
+                print("Error")
 
         self.pos = None
 
@@ -259,7 +261,8 @@ class digitalwatermark:
 
         def colorpicker():
             (self.rgb, self.hx) = colorchooser.askcolor()
-
+            self.show_color = Label(self.water_mark, text="Your choosen color", bg=[self.hx])
+            self.show_color.grid(row=5, column=2, padx=5, pady=5, sticky=E)
         # OK
         def print_all():
             water_mark(self.filename.get(), self.text.get(),
